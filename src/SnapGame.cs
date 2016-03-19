@@ -10,6 +10,7 @@ namespace CardGames
         {
             Bitmap cards;
             cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
+			SwinGame.LoadFontNamed ("GameFont", "Chunkfive.otf", 24);
             SwinGame.BitmapSetCellDetails (cards, 167, 250, 13, 5, 53);      // set the cells in the bitmap to match the cards
         }
 
@@ -29,9 +30,9 @@ namespace CardGames
 
 			if (myGame.IsStarted)
 			{
-				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RIGHTSHIFT)) {
+				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 					//TODO: add sound effects
-				} else if (SwinGame.KeyTyped (KeyCode.vl_LSHIFT)) {
+				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					myGame.PlayerHit (0);
 				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 					myGame.PlayerHit (1);
@@ -52,8 +53,8 @@ namespace CardGames
 			if (top != null)
 			{
 				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.RoyalBlue, 0, 20);
-				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.RoyalBlue, 0, 30);
-				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.RoyalBlue, 0, 40);
+				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.White, "GameFont", 0, 30);
+				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.White, "GameFont", 0, 50);
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 521, 153);
 			}
 			else
