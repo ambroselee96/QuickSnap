@@ -119,6 +119,7 @@ namespace CardGames.GameLogic
 			}
 			//TODO: implement update to automatically slip cards!
 		}
+			
 
 		/// <summary>
 		/// Gets the player's score.
